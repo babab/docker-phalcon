@@ -21,8 +21,8 @@
 
 #wd# build = {docker} build -t {name} .
 #wd# run = {docker} run -d {vol} {ports} --name {name} {name}
-##wd# run = {docker} run -it {vol} {ports} --name {name} {name}
 #wd# stop = {docker} stop {name}
+#wd# rm = {docker} rm {name}
 
 # wdocker commands:
 
@@ -30,7 +30,8 @@
 #wd# start: {docker} start {name}
 #wd# stop: {stop}
 #wd# shell: {docker} exec -it {name} bash
-#wd# rm: {stop} && {docker} rm {name}
+#wd# rm: {stop} && {rm}
+#wd# rebuild: {stop} && {rm} && {build} && {run}
 
 FROM ubuntu:trusty
 MAINTAINER Benjamin Althues <benjamin@althu.es>
