@@ -16,7 +16,7 @@
 
 #wd# docker = docker
 #wd# name = phalcon
-#wd# vol = -v $PWD/www:/var/www
+#wd# vol = -v $PWD/../src:/var/www
 #wd# ports = -p 127.0.0.1:80:80
 
 #wd# build = {docker} build -t {name} .
