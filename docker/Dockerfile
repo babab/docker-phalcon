@@ -42,7 +42,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
 RUN apt-add-repository ppa:phalcon/stable
 RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
-    apache2 php5-phalcon php5-mysql libapache2-mod-php5
+    apache2 libapache2-mod-php5 php5-curl php5-mongo \
+    php5-mysql php5-phalcon php5-sqlite
 VOLUME /var/www
 WORKDIR /var/www
 RUN a2enmod rewrite
