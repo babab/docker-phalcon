@@ -17,11 +17,19 @@ try {
     $di->set('view', function () {
         $view = new View();
         $view->setViewsDir('../app/views/');
+        $view->registerEngines([
+            '.volt' => function($view, $di) {
+                $volt = new \Phalcon\Mvc\View\Engine\Volt($view, $di);
+                $volt->setOptions(['compiledPath' => '../app/cache/']);
+                return $volt;
+            }
+        ]);
+
         return $view;
     });
     $di->set('url', function () {
         $url = new UrlProvider();
-        $url->setBaseUri('/tutorial/');
+        $url->setBaseUri('/');
         return $url;
     });
 
